@@ -12,8 +12,8 @@ $('input[type="radio"]').on('change', function() {
 $('input[type="color"]').each(function() {
 	$(this).on('input', function() {
 		var color = $(this).val();
-		$(this).closest('.color').find('.color-text').val(color);
-		$(this).closest('.color').find('.color-preview').css('background-color', color);
+		$(this).closest('.color-select').find('.color-text').val(color);
+		$(this).closest('.color-select').find('.color-preview').css('background-color', color);
 		allowBlend();
 	});
 });
@@ -23,7 +23,7 @@ $('.color-text').each(function() {
 	$(this).on('input', function() {
 		var color = $(this).val();
 		if (color.indexOf('#') !== 0) {color = '#' + color};
-		$(this).closest('.color').find('.color-preview').css('background-color', color);
+		$(this).closest('.color-select').find('.color-preview').css('background-color', color);
 		allowBlend();
 	});
 });

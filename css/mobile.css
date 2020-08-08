@@ -1,0 +1,36 @@
+.column {
+	float: none;
+	margin: 25px;
+	margin-bottom: 35px;
+}
+
+.control-center {
+	display: block;
+	padding: 20px;
+	padding-top: 25px;
+}
+
+.blendation-station {
+	padding: 20px;
+}
+
+table {margin: 0 auto;}
+
+.blend-header {
+	display: none;
+}
+
+td {
+	height: 30px;
+	border-radius: 3px;
+}
+
+.step-color {
+	width: 30px;
+	border-radius: 50%;
+}
+.step-hex, .step-rgb, .step-hsl {
+	font-size: 11px;
+	min-width: 50px;
+	padding: 0 6px;
+}

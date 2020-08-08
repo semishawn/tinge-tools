@@ -5,6 +5,7 @@ $('.selected').on('click', function() {
 
 // Edit blend steps on midpoint select
 $('.option').on('click', function() {
+	// Remove all current steps and replace with midpoint amount + 2
 	var midpointSelect = $(this).html();
 	$('.data').html(midpointSelect);
 	$('.option-container').hide();
@@ -12,5 +13,8 @@ $('.option').on('click', function() {
 	$('.blend-container').empty();
 	$('.blend-container').append(new Array(++midpoints).join('<tr class="blend-step"><td class="step-color"></td><td class="step-hex"></td><td class="step-rgb"></td><td class="step-hsl"></td></tr>'));
 
+	// Cleanup
 	$('.flip-button').addClass('disabled');
+	flipReset();
+	headingResize();
 });

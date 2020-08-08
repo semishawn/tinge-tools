@@ -15,11 +15,13 @@ function mix(color1, color2, weight) {
 
 // Blend function
 $('.blend-button').on('click', function blend() {
-	var colorInput1 = $('.color-text1').val().replace('#', '');
-	var colorInput2 = $('.color-text2').val().replace('#', '');
+	// Acquire color text from inputs, convert to 6 hex if needed
+	var colorInput1 = $('.color-text1').val().replace('#','');
+	var colorInput2 = $('.color-text2').val().replace('#','');
 	colorInput1 = hexElongator(colorInput1);
 	colorInput2 = hexElongator(colorInput2);
 
+	// Calculate blend steps and display visuals/formats
 	var stepAmount = $('.blend-step').length - 1;
 	$('.blend-step').each(function() {
 		var stepCounter = stepAmount - $(this).index();
@@ -34,16 +36,46 @@ $('.blend-button').on('click', function blend() {
 		$(this).find('.step-hsl').html(stepHsl);
 	});
 
-	$('.flip-button').removeClass('disabled');
+	// Allow color formats to be copied
 	$('td').not('.step-color').addClass('copy');
 
+	// Cleanup
+	$('.flip-button').removeClass('disabled');
+	flipReset();
+	headingResize();
+});
+
+// Heading resize
+function headingResize() {
 	$('div.step-hex').width( $('td.step-hex').outerWidth() );
 	$('div.step-rgb').width( $('td.step-rgb').outerWidth() );
 	$('div.step-hsl').width( $('td.step-hsl').outerWidth() );
-});
+};
 
-// Flip function
+// Flip color order
 $('.flip-button').click(function() {
 	$('.blend-container').toggleClass('flip');
 	$('td').not('.step-color').toggleClass('flip');
+});
+
+// Flip reset
+function flipReset() {
+	$('.blend-container').removeClass('flip');
+	$('td').not('.step-color').removeClass('flip');
+};
+
+// Copy on click
+$(document).on('click', '.copy', function () {
+	var copyInput = $("<input>");
+	$("body").append(copyInput);
+	copyInput.val($(this).html()).select();
+	document.execCommand("copy");
+	copyInput.remove();
+
+	var copyBox = $('<div class="copy-box"><i class="far fa-copy"></i>Copied to clipboard!</div>');
+	copyBox.appendTo($('body')).delay(200).animate({'right': '0'}, 400);
+	var copyWidth = parseInt( $('.copy-box').css('--copy-width') );
+	var copyMargin = parseInt( $('.copy-box').css('--copy-margin') );
+	var pullBack = -1 * (copyWidth + 2 * copyMargin);
+	copyBox.delay(2000).animate({'right': pullBack}, 400);
 });

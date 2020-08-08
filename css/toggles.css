@@ -16,3 +16,4 @@
 	background-color: #ddd;
 	cursor: pointer;
 }
+.copy:active {background-color: #ccc;}
