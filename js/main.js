@@ -17,6 +17,8 @@ function mix(color1, color2, weight) {
 $('.blend-button').on('click', function blend() {
 	var colorInput1 = $('.color-text1').val().replace('#', '');
 	var colorInput2 = $('.color-text2').val().replace('#', '');
+	colorInput1 = hexElongator(colorInput1);
+	colorInput2 = hexElongator(colorInput2);
 
 	var stepAmount = $('.blend-step').length - 1;
 	$('.blend-step').each(function() {

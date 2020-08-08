@@ -1,3 +1,14 @@
+// 3 hex to 6 hex
+function hexElongator(hex) {
+	if (hex.length == 3) {
+		var r = hex.substr(0,1).toString();
+		var g = hex.substr(1,1).toString();
+		var b = hex.substr(2,1).toString();
+		hex = r + r + g + g + b + b;
+	};
+	return hex;
+};
+
 // hex to rgb
 function hex2rgb(hex) {
 	hex = hex.replace('#', '');
