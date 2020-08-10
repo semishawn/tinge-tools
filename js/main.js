@@ -51,7 +51,8 @@ $('.blend-button').on('click', function blend() {
 	// Allow color formats to be copied
 	$('td').not('.step-color').addClass('copy');
 
-	// Reset assets
+	// Clean up assets
+	$('.flip-button').removeClass('disabled');
 	reset();
 });
 
@@ -79,9 +80,6 @@ $(document).on('click', '.copy', function () {
 
 // Reset assets on certain changes
 function reset() {
-	// Disable flip button
-	$('.flip-button').removeClass('disabled');
-
 	// Revert flipped containers
 	$('.blend-container').removeClass('flip');
 	$('td').not('.step-color').removeClass('flip');

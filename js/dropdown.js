@@ -14,5 +14,6 @@ $('.option').on('click', function() {
 	$('.blend-container').append(new Array(++midpoints).join('<tr class="blend-step"><td class="step-color"></td><td class="step-hex"></td><td class="step-rgb"></td><td class="step-hsl"></td></tr>'));
 
 	// Reset assets
+	$('.flip-button').addClass('disabled');
 	reset();
 });
