@@ -15,96 +15,92 @@
 </head>
 
 <body>
-<div class="column">
-	<div class="control-center">
-		<div class="indicator">Color Control Center</div>
+<div class="column control-center">
+	<div class="indicator">Color Control Center</div>
 
-		<!--Color Format Select-->
-		<div class="color-format-container">
-			<input autocomplete="off" type="radio" name="color-format" id="hex-format" checked>
-			<label for="hex-format">HEX</label>
-			<input autocomplete="off" type="radio" name="color-format" id="rgb-format">
-			<label for="rgb-format">RGB</label>
-			<input autocomplete="off" type="radio" name="color-format" id="hsl-format">
-			<label for="hsl-format">HSL</label>
-		</div>
-	
-		<!--Color Select 1-->
-		<div class="color-select">
-			<div class="color-input">
-				<input autocomplete="off" type="text" class="color-text color-text1" placeholder="HEX Color 1">
-				<label for="color-select1"><i class="fas fa-eye-dropper"></i></label>
-				<input autocomplete="off" type="color" id="color-select1">
-			</div>
-			<div class="color-preview color-preview1"></div>
-		</div>
-		
-		<!--Color Select 2-->
-		<div class="color-select">
-			<div class="color-input">
-				<input autocomplete="off" type="text" class="color-text color-text2" placeholder="HEX Color 2">
-				<label for="color-select2"><i class="fas fa-eye-dropper"></i></label>
-				<input autocomplete="off" type="color" id="color-select2">
-			</div>
-			<div class="color-preview color-preview2"></div>
-		</div>
-	
-		<!--Midpoint Select-->
-		<div class="dropdown">
-			<div class="selected">Midpoints:<div class="data">1</div></div>
-			<div class="option-container">
-				<div class="option">1</div>
-				<div class="option">2</div>
-				<div class="option">3</div>
-				<div class="option">4</div>
-				<div class="option">5</div>
-				<div class="option">6</div>
-				<div class="option">7</div>
-				<div class="option">8</div>
-				<div class="option">9</div>
-				<div class="option">10</div>
-			</div>
-		</div><!--
-	
-	 --><div class="button blend-button disabled">Blend!<i class="fas fa-blender"></i></div><br>
-	
-		<div class="button flip-button disabled">Flip Color Order<i class="fas fa-random"></i></div>
+	<!--Color Format Select-->
+	<div class="color-format-container">
+		<input autocomplete="off" type="radio" name="color-format" id="hex-format" checked>
+		<label for="hex-format">Hex</label>
+		<input autocomplete="off" type="radio" name="color-format" id="rgb-format">
+		<label for="rgb-format">RGB</label>
+		<input autocomplete="off" type="radio" name="color-format" id="hsl-format">
+		<label for="hsl-format">HSL</label>
 	</div>
+
+	<!--Color Select 1-->
+	<div class="color-select">
+		<div class="color-input">
+			<input autocomplete="off" type="text" class="color-text color-text1" placeholder="HEX Color 1">
+			<label for="color-select1"><i class="fas fa-eye-dropper"></i></label>
+			<input autocomplete="off" type="color" id="color-select1">
+		</div>
+		<div class="color-preview color-preview1"></div>
+	</div>
+	
+	<!--Color Select 2-->
+	<div class="color-select">
+		<div class="color-input">
+			<input autocomplete="off" type="text" class="color-text color-text2" placeholder="HEX Color 2">
+			<label for="color-select2"><i class="fas fa-eye-dropper"></i></label>
+			<input autocomplete="off" type="color" id="color-select2">
+		</div>
+		<div class="color-preview color-preview2"></div>
+	</div>
+
+	<!--Midpoint Select-->
+	<div class="dropdown">
+		<div class="selected">Midpoints:<div class="data">1</div></div>
+		<div class="option-container">
+			<div class="option">1</div>
+			<div class="option">2</div>
+			<div class="option">3</div>
+			<div class="option">4</div>
+			<div class="option">5</div>
+			<div class="option">6</div>
+			<div class="option">7</div>
+			<div class="option">8</div>
+			<div class="option">9</div>
+			<div class="option">10</div>
+		</div>
+	</div><!--
+
+	--><div class="button blend-button disabled">Blend!<i class="fas fa-blender"></i></div><br>
+
+	<div class="button flip-button disabled">Flip Color Order<i class="fas fa-random"></i></div>
 </div>
 
 
-<div class="column">
-	<div class="blendation-station">
-		<div class="indicator">Blendation Station</div>
+<div class="column blendation-station">
+	<div class="indicator">Blendation Station</div>
 
-		<div class="blend-header">
-			<div class="step-color">Color Steps</div><!--
-		 --><div class="step-hex">HEX</div><!--
-		 --><div class="step-rgb">RGB</div><!--
-		 --><div class="step-hsl">HSL</div>
-		</div>
-
-		<table class="blend-container">
-			<tr class="blend-step">
-				<td class="step-color"></td>
-				<td class="step-hex"></td>
-				<td class="step-rgb"></td>
-				<td class="step-hsl"></td>
-			</tr>
-			<tr class="blend-step">
-				<td class="step-color"></td>
-				<td class="step-hex"></td>
-				<td class="step-rgb"></td>
-				<td class="step-hsl"></td>
-			</tr>
-			<tr class="blend-step">
-				<td class="step-color"></td>
-				<td class="step-hex"></td>
-				<td class="step-rgb"></td>
-				<td class="step-hsl"></td>
-			</tr>
-		</table>
+	<div class="blend-header">
+		<div class="step-color">Color Steps</div><!--
+		--><div class="step-hex">HEX</div><!--
+		--><div class="step-rgb">RGB</div><!--
+		--><div class="step-hsl">HSL</div>
 	</div>
+
+	<table class="blend-container">
+		<tr class="blend-step">
+			<td class="step-color"></td>
+			<td class="step-hex"></td>
+			<td class="step-rgb"></td>
+			<td class="step-hsl"></td>
+		</tr>
+		<tr class="blend-step">
+			<td class="step-color"></td>
+			<td class="step-hex"></td>
+			<td class="step-rgb"></td>
+			<td class="step-hsl"></td>
+		</tr>
+		<tr class="blend-step">
+			<td class="step-color"></td>
+			<td class="step-hex"></td>
+			<td class="step-rgb"></td>
+			<td class="step-hsl"></td>
+		</tr>
+	</table>
 </div>
 
 <script src="js/dropdown.js"></script>

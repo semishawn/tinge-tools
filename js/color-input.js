@@ -22,7 +22,7 @@ $('input[type="color"]').each(function() {
 $('.color-text').each(function() {
 	$(this).on('input', function() {
 		var color = $(this).val();
-		if (color.indexOf('#') !== 0) {color = '#' + color};
+		if ($('#hex-format').is(':checked') && color.indexOf('#') !== 0) {color = '#' + color};
 		$(this).closest('.color-select').find('.color-preview').css('background-color', color);
 		allowBlend();
 	});

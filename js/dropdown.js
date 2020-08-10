@@ -13,8 +13,6 @@ $('.option').on('click', function() {
 	$('.blend-container').empty();
 	$('.blend-container').append(new Array(++midpoints).join('<tr class="blend-step"><td class="step-color"></td><td class="step-hex"></td><td class="step-rgb"></td><td class="step-hsl"></td></tr>'));
 
-	// Cleanup
-	$('.flip-button').addClass('disabled');
-	flipReset();
-	headingResize();
+	// Reset assets
+	reset();
 });

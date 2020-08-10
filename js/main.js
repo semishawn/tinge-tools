@@ -1,12 +1,12 @@
 // Mix two colors based on weight
 function mix(color1, color2, weight) {
-	function h2d(e) {return parseInt(e, 16);}
-	function d2h(e) {return ('0' + Math.round(e).toString(16)).slice(-2);}
+	function h2d(e) {return parseInt(e, 16)};
+	function d2h(e) {return ('0' + Math.round(e).toString(16)).slice(-2)};
 	var divisor = weight / 100;
 	var color = '#';
 	for (var i = 0; i <= 5; i += 2) {
-		var v1 = h2d(color1.substr(i, 2));
-		var v2 = h2d(color2.substr(i, 2));
+		let v1 = h2d(color1.substr(i, 2)),
+			v2 = h2d(color2.substr(i, 2));
 		vv = d2h(v2 + (v1 - v2) * divisor).toUpperCase();
 		color += vv;
 	};
@@ -15,21 +15,33 @@ function mix(color1, color2, weight) {
 
 // Blend function
 $('.blend-button').on('click', function blend() {
-	// Acquire color text from inputs, convert to 6 hex if needed
-	var colorInput1 = $('.color-text1').val().replace('#','');
-	var colorInput2 = $('.color-text2').val().replace('#','');
-	colorInput1 = hexElongator(colorInput1);
-	colorInput2 = hexElongator(colorInput2);
+	// Acquire color text from inputs
+	var colorInput1 = $('.color-text1').val();
+	var colorInput2 = $('.color-text2').val();
+
+	// Which format is selected
+	if ($('#hex-format').is(':checked')) {
+		colorInput1 = hexElongator(colorInput1.replace('#',''));
+		colorInput2 = hexElongator(colorInput2.replace('#',''));
+	}
+	else if ($('#rgb-format').is(':checked')) {
+		colorInput1 = rgb2hex(colorInput1).replace('#','');
+		colorInput2 = rgb2hex(colorInput2).replace('#','');
+	}
+	else if ($('#hsl-format').is(':checked')) {
+		colorInput1 = hsl2hex(colorInput1).replace('#','');
+		colorInput2 = hsl2hex(colorInput2).replace('#','');
+	};
 
 	// Calculate blend steps and display visuals/formats
 	var stepAmount = $('.blend-step').length - 1;
 	$('.blend-step').each(function() {
-		var stepCounter = stepAmount - $(this).index();
-		var stepMultiplier = 100 / stepAmount;
-		var stepWeight = stepCounter * stepMultiplier;
-		var stepHex = mix(colorInput1, colorInput2, stepWeight);
-		var stepRgb = hex2rgb(stepHex);
-		var stepHsl = hex2hsl(stepHex);
+		let stepCounter = stepAmount - $(this).index(),
+			stepMultiplier = 100 / stepAmount,
+			stepWeight = stepCounter * stepMultiplier,
+			stepHex = mix(colorInput1, colorInput2, stepWeight),
+			stepRgb = hex2rgb(stepHex),
+			stepHsl = hex2hsl(stepHex);
 		$(this).find('.step-color').css('background-color', stepHex);
 		$(this).find('.step-hex').html(stepHex);
 		$(this).find('.step-rgb').html(stepRgb);
@@ -39,30 +51,15 @@ $('.blend-button').on('click', function blend() {
 	// Allow color formats to be copied
 	$('td').not('.step-color').addClass('copy');
 
-	// Cleanup
-	$('.flip-button').removeClass('disabled');
-	flipReset();
-	headingResize();
+	// Reset assets
+	reset();
 });
-
-// Heading resize
-function headingResize() {
-	$('div.step-hex').width( $('td.step-hex').outerWidth() );
-	$('div.step-rgb').width( $('td.step-rgb').outerWidth() );
-	$('div.step-hsl').width( $('td.step-hsl').outerWidth() );
-};
 
 // Flip color order
 $('.flip-button').click(function() {
 	$('.blend-container').toggleClass('flip');
 	$('td').not('.step-color').toggleClass('flip');
 });
-
-// Flip reset
-function flipReset() {
-	$('.blend-container').removeClass('flip');
-	$('td').not('.step-color').removeClass('flip');
-};
 
 // Copy on click
 $(document).on('click', '.copy', function () {
@@ -79,3 +76,18 @@ $(document).on('click', '.copy', function () {
 	var pullBack = -1 * (copyWidth + 2 * copyMargin);
 	copyBox.delay(2000).animate({'right': pullBack}, 400);
 });
+
+// Reset assets on certain changes
+function reset() {
+	// Disable flip button
+	$('.flip-button').removeClass('disabled');
+
+	// Revert flipped containers
+	$('.blend-container').removeClass('flip');
+	$('td').not('.step-color').removeClass('flip');
+
+	// Resize headers
+	$('div.step-hex').width( $('td.step-hex').outerWidth() );
+	$('div.step-rgb').width( $('td.step-rgb').outerWidth() );
+	$('div.step-hsl').width( $('td.step-hsl').outerWidth() );
+};

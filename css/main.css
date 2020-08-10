@@ -1,6 +1,6 @@
 :root {
 	--input-height: 38px;
-	--input-width: 200px;
+	--input-width: 220px;
 	--border-spacing: 16px;
 	--border-color: rgb(135, 206, 250);
 	--button-hover: rgba(135, 206, 250, 0.1);
@@ -8,15 +8,14 @@
 
 * {font-family: 'Roboto', sans-serif;}
 
-body {
-	display: table;
-	width: 100%;
+html, body {
+	position: relative;
+	padding: 0;
 	margin: 0;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
 	overflow-x: hidden;
-}
-.column {
-	float: left;
-	margin: 30px;
 }
 
 .indicator {
@@ -33,6 +32,7 @@ body {
 /* Blend */
 .blendation-station {
 	position: relative;
+	float: left;
 	padding: 25px;
 	padding-top: 28px;
 	border: 2px solid pink;
@@ -70,7 +70,7 @@ td {
 /* Color Inputs */
 .control-center {
 	position: relative;
-	display: inline-block;
+	float: left;
 	text-align: center;
 	padding: 25px;
 	padding-top: 28px;
@@ -202,7 +202,7 @@ input[type='color'] {display: none;}
 	--copy-height: 50px;
 	--copy-width: 210px;
 	--copy-margin: 15px;
-	position: absolute;
+	position: fixed;
 	display: flex;
 	justify-content: center;
 	align-items: center;
