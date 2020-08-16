@@ -9,14 +9,30 @@
 </head>
 
 <body>
-	<div></div>
-	<style>
-		div {
-			height: 100px;
-			width: 100px;
-			background-color: hsl(351, 100%, 47%);
-		}
-	</style>
+	<canvas class="canvas" width="100" height="100"></canvas>
+	<img class="image" src="http://i.imgur.com/w1yg6qo.jpg">
+
+	<script>
+	// get a block size (see demo for this approach)
+	var canvas = $('.canvas');
+	var img = $('.image');
+
+	var size = blocks.value / 100,
+		w = canvas.width * size,
+		h = canvas.height * size;
+
+	// draw the original image at a fraction of the final size
+	ctx.drawImage(img, 0, 0, w, h);
+
+	// turn off image aliasing
+	ctx.msImageSmoothingEnabled = false;
+	ctx.mozImageSmoothingEnabled = false;
+	ctx.webkitImageSmoothingEnabled = false;
+	ctx.imageSmoothingEnabled = false;
+
+	// enlarge the minimized image to full size    
+	ctx.drawImage(canvas, 0, 0, w, h, 0, 0, canvas.width, canvas.height);
+	</script>
 </body>
 
 </html>

@@ -48,11 +48,13 @@ $('.blend-button').on('click', function blend() {
 		$(this).find('.step-hsl').html(stepHsl);
 	});
 
-	// Allow color formats to be copied
+	// Enable copy on click
 	$('td').not('.step-color').addClass('copy');
 
+	// Failsafe
+	failsafe();
+
 	// Clean up assets
-	$('.flip-button').removeClass('disabled');
 	reset();
 });
 
@@ -88,4 +90,17 @@ function reset() {
 	$('div.step-hex').width( $('td.step-hex').outerWidth() );
 	$('div.step-rgb').width( $('td.step-rgb').outerWidth() );
 	$('div.step-hsl').width( $('td.step-hsl').outerWidth() );
+};
+
+// Failsafe
+function failsafe() {
+	if ($('td.step-hsl').html().includes('NaN')) {
+		$('td.step-hex').empty();
+		$('td.step-rgb').empty();
+		$('td.step-hsl').empty();
+		$('td').removeClass('copy');
+		$('td').css('background-color', '#eee');
+	} else {
+		$('.flip-button').removeClass('disabled');
+	};
 };
