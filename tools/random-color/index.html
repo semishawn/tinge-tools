@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<style>
+	.generation {
+		float: left;
+	}
+
+	.color-box {
+		height: 100px;
+		width: 100px;
+		border: 2px solid black;
+	}
+	</style>
+</head>
+
+<body>
+	<div class="generation normal">
+		<button class="generate">Random</button>
+		<div class="color-box"></div>
+		<div class="color-text"></div>
+	</div>
+
+	<div class="generation greyscale">
+		<button class="generate">Random</button>
+		<div class="color-box"></div>
+		<div class="hex"></div>
+		<div class="rgb"></div>
+		<div class="hsl"></div>
+	</div>
+
+	<script>
+	$('.normal .generate').click(function() {
+		var hexDig = Math.floor(Math.random() * 16777215).toString(16).toUpperCase();
+		var hex = '#' + ('000000' + hexDig).slice(-6);
+		$('.normal .color-box').css('background', hex);
+		$('.normal .color-text').html(hex);
+	});
+
+	$('.greyscale .generate').click(function() {
+		randDig = Math.floor(Math.random() * 256);
+
+		hexDig = ('0' + randDig.toString(16)).toUpperCase().slice(-2);
+		rgbDig = randDig.toString();
+		hslDig = Math.floor(randDig / 256 * 100).toString();
+
+		hex = `#${hexDig}${hexDig}${hexDig}`;
+		rgb = `rgb(${rgbDig}, ${rgbDig}, ${rgbDig})`;
+		hsl = `hsl(0, 0, ${hslDig}%)`;
+
+		$('.greyscale .color-box').css('background', hex);
+		$('.greyscale .hex').html(hex);
+		$('.greyscale .rgb').html(rgb);
+		$('.greyscale .hsl').html(hsl);
+	});
+	</script>
+</body>
+
+</html>

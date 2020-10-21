@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blend Friend 🙂</title>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://kit.fontawesome.com/5978d27576.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/dropdown.css">
+	<link rel="stylesheet" href="css/toggles.css">
+	<link rel="stylesheet" media="screen and (max-width: 600px)" href="css/mobile.css">
+</head>
+
+<body>
+<div class="container control-center">
+
+	<!--Color Format Select-->
+	<div class="color-format preference-container">
+		<div class="preference-title">Color Format:</div>
+		<div>
+			<input autocomplete="off" type="radio" name="color-format" id="hex-format" checked>
+			<label class="format preference" for="hex-format">Hex</label>
+			<input autocomplete="off" type="radio" name="color-format" id="rgb-format">
+			<label class="format preference" for="rgb-format">RGB</label>
+			<input autocomplete="off" type="radio" name="color-format" id="hsl-format">
+			<label class="format preference" for="hsl-format">HSL</label>
+		</div>
+	</div>
+
+	<!--Mixing Method-->
+	<div class="mixing-method preference-container">
+		<div class="preference-title">Mixing Method:</div>
+		<div>
+			<input autocomplete="off" type="radio" name="mixing-method" id="rgb-method" checked>
+			<label class="method preference" for="rgb-method">RGB (Light)</label>
+			<input autocomplete="off" type="radio" name="mixing-method" id="ryb-method">
+			<label class="method preference" for="ryb-method">RYB (Pigment)</label>
+		</div>
+	</div>
+
+	<!--Color Select 1-->
+	<div class="color-select">
+		<div class="color-input">
+			<input autocomplete="off" type="text" class="color-text color-text1" placeholder="Hex Color 1">
+			<label for="color-select1"><i class="fas fa-eye-dropper"></i></label>
+			<input autocomplete="off" type="color" id="color-select1">
+		</div>
+		<div class="color-preview color-preview1"></div>
+	</div>
+	
+	<!--Color Select 2-->
+	<div class="color-select">
+		<div class="color-input">
+			<input autocomplete="off" type="text" class="color-text color-text2" placeholder="Hex Color 2">
+			<label for="color-select2"><i class="fas fa-eye-dropper"></i></label>
+			<input autocomplete="off" type="color" id="color-select2">
+		</div>
+		<div class="color-preview color-preview2"></div>
+	</div>
+
+	<!--Midpoint Select-->
+	<div class="dropdown">
+		<div class="selected">Midpoints:<div class="data">1</div></div>
+		<div class="option-container">
+			<div class="option">1</div>
+			<div class="option">2</div>
+			<div class="option">3</div>
+			<div class="option">4</div>
+			<div class="option">5</div>
+			<div class="option">6</div>
+			<div class="option">7</div>
+			<div class="option">8</div>
+			<div class="option">9</div>
+			<div class="option">10</div>
+			<div class="divider"></div>
+			<div class="custom-option">
+				<button class="setter inc"><i class="fas fa-angle-up"></i></button>
+				<div class="option option-field">11</div>
+				<button class="setter dec"><i class="fas fa-angle-down"></i></button>
+			</div>
+		</div>
+	</div><!--
+
+ --><div class="button blend-button disabled">Blend!<i class="fas fa-blender"></i></div><br>
+
+	<div class="button reverse-button disabled">Reverse Color Order<i class="fas fa-random"></i></div>
+</div>
+
+
+<div class="container blendation-station">
+
+	<table class="blend-container">
+		<thead class="blend-header">
+			<td class="header-col">Color Steps</td>
+			<td class="header-col">Hex</td>
+			<td class="header-col">RGB</td>
+			<td class="header-col">HSL</td>
+		</thead>
+		<tr class="blend-step">
+			<td class="step-color"></td>
+			<td class="step-hex"></td>
+			<td class="step-rgb"></td>
+			<td class="step-hsl"></td>
+		</tr>
+		<tr class="blend-step">
+			<td class="step-color"></td>
+			<td class="step-hex"></td>
+			<td class="step-rgb"></td>
+			<td class="step-hsl"></td>
+		</tr>
+		<tr class="blend-step">
+			<td class="step-color"></td>
+			<td class="step-hex"></td>
+			<td class="step-rgb"></td>
+			<td class="step-hsl"></td>
+		</tr>
+	</table>
+</div>
+
+<script src="js/dropdown.js"></script>
+<script src="js/color-input.js"></script>
+<script src="js/color-convert.js"></script>
+<script src="js/main.js"></script>
+</body>
+
+</html>

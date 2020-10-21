@@ -1,0 +1,24 @@
+.stepper {
+	display: flex;
+	flex-direction: column;
+	width: 36px;
+	background: pink;
+}
+
+.setter {
+	padding: 0;
+	border: 0;
+	background: transparent;
+}
+
+.number-option {
+	height: 20px;
+	text-align: center;
+	border: 0;
+	background: transparent;
+	pointer-events: none;
+}
+.number-option::-webkit-inner-spin-button,
+.number-option::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+}
