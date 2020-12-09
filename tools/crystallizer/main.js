@@ -1,5 +1,5 @@
-$('#upload-pic').change(function() {
-	let src = URL.createObjectURL(event.target.files[0]);
+$('#upload-pic').change(function(e) {
+	let src = URL.createObjectURL(e.target.files[0]);
 	$('.output').attr('src', src);
 });
 

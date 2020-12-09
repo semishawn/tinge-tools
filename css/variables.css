@@ -1,0 +1,16 @@
+:root {
+	--main-font: 'IBM Plex Sans';
+
+	--input-height: 38px;
+	--input-width: 220px;
+	--input-font-size: 15px;
+	--input-padding: 12px;
+	--input-border: 2px;
+	--input-radius: 6px;
+	--input-color: #585ddb;
+	--input-hover: #f1f1fc;
+	--input-active: #585ddb60;
+	--input-animation: 0.2s;
+	--input-spacing: 12px;
+	--table-spacing: 4px;
+}

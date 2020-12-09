@@ -1,0 +1,50 @@
+/* Randomize settings */
+.selector-title {margin-bottom: 5px;}
+
+.color-selector {
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	border: var(--input-border) solid var(--input-color);
+	border-radius: var(--input-radius);
+	margin-bottom: var(--input-spacing);
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+label {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: calc(var(--input-height) - 2 * var(--input-border));
+	font-size: var(--input-font-size);
+	padding: 0 var(--input-padding);
+	cursor: pointer;
+	box-sizing: border-box;
+}
+input:not(:checked) + label:hover {background: var(--input-hover);}
+
+.spin {animation: rotate var(--input-animation) linear;}
+@keyframes rotate {100% {transform: rotate(360deg);}}
+
+
+
+/* Randomization Station */
+.color-box {
+	height: 200px;
+	width: 100%;
+	border-radius: var(--input-radius);
+	background: #eee;
+}
+
+.color-data-container {border-spacing: 5px;}
+
+.color-data-container td {
+	height: var(--input-height);
+	padding: 0 var(--input-padding);
+	border-radius: var(--input-radius);
+	background: #eee;
+	box-sizing: border-box;
+}
+.color-data {width: 180px;}

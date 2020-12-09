@@ -4,61 +4,60 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<style>
-	.generation {
-		float: left;
-	}
-
-	.color-box {
-		height: 100px;
-		width: 100px;
-		border: 2px solid black;
-	}
-	</style>
+	<title>Colorium Randomosa!</title>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+	<script src="https://kit.fontawesome.com/5978d27576.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.6.1/randomColor.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.4.2/tinycolor.min.js"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../../css/main.css">
+	<link rel="stylesheet" href="../../css/variables.css">
+	<link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-	<div class="generation normal">
-		<button class="generate">Random</button>
-		<div class="color-box"></div>
-		<div class="color-text"></div>
+	<div class="container control-center">
+		<div class="indicator">Control Center</div>
+
+		<div class="selector-title">Luminosity:</div>
+		<div class="color-selector lumin-selector">
+			<div class="switcher"></div>
+		</div>
+
+		<div class="selector-title">Hue:</div>
+		<div class="color-selector hue-selector">
+			<div class="switcher"></div>
+		</div>
+
+		<div class="function-button">
+			<div class="tag">Randomize!</div>
+			<div class="circle"><i class="fas fa-sync-alt"></i></div>
+		</div>
 	</div>
 
-	<div class="generation greyscale">
-		<button class="generate">Random</button>
+	<div class="container randomization-station">
+		<div class="indicator">Randomization Station</div>
+
 		<div class="color-box"></div>
-		<div class="hex"></div>
-		<div class="rgb"></div>
-		<div class="hsl"></div>
+		<table class="color-data-container">
+			<tr>
+				<td class="data-label">Hex:</td>
+				<td class="color-data hex-data">To be determined...</td>
+			</tr>
+			<tr>
+				<td class="data-label">RGB:</td>
+				<td class="color-data rgb-data">To be determined...</td>
+			</tr>
+			<tr>
+				<td class="data-label">HSL:</td>
+				<td class="color-data hsl-data">To be determined...</td>
+			</tr>
+		</table>
 	</div>
 
-	<script>
-	$('.normal .generate').click(function() {
-		var hexDig = Math.floor(Math.random() * 16777215).toString(16).toUpperCase();
-		var hex = '#' + ('000000' + hexDig).slice(-6);
-		$('.normal .color-box').css('background', hex);
-		$('.normal .color-text').html(hex);
-	});
-
-	$('.greyscale .generate').click(function() {
-		randDig = Math.floor(Math.random() * 256);
-
-		hexDig = ('0' + randDig.toString(16)).toUpperCase().slice(-2);
-		rgbDig = randDig.toString();
-		hslDig = Math.floor(randDig / 256 * 100).toString();
-
-		hex = `#${hexDig}${hexDig}${hexDig}`;
-		rgb = `rgb(${rgbDig}, ${rgbDig}, ${rgbDig})`;
-		hsl = `hsl(0, 0, ${hslDig}%)`;
-
-		$('.greyscale .color-box').css('background', hex);
-		$('.greyscale .hex').html(hex);
-		$('.greyscale .rgb').html(rgb);
-		$('.greyscale .hsl').html(hsl);
-	});
-	</script>
+	<script src="../../js/main.js"></script>
+	<script src="main.js"></script>
 </body>
 
 </html>

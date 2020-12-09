@@ -1,0 +1,128 @@
+* {
+	font-family: var(--main-font);
+	font-size: var(--input-font-size);
+}
+
+html, body {
+	position: relative;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	background: #f4f7fc;
+}
+
+input[type="radio"] {display: none;}
+
+.container {
+	position: relative;
+	float: left;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 35px;
+	margin: 50px;
+	border-radius: 15px;
+	background: white;
+	box-shadow: 3px 3px 20px 0 rgba(0,0,0,0.2);
+}
+.container:first-child {margin-right: 0;}
+
+.indicator {
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: var(--input-height);
+	font-style: italic;
+	padding: 0 var(--input-padding);
+	border: var(--input-border) solid var(--input-color);
+	border-radius: var(--input-radius);
+	background: white;
+	box-shadow: 0 0 14px 0 rgba(0,0,0,0.1);
+	transform: rotate(-4deg);
+	box-sizing: border-box;
+}
+
+.switcher {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: calc(var(--input-height) - 2 * var(--input-border));
+	background: var(--input-active);
+	transition: all var(--input-animation);
+	z-index: 999;
+}
+
+.function-button {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	transition: all var(--input-animation);
+}
+
+.circle {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: calc(var(--input-height) + var(--input-padding));
+	width: calc(var(--input-height) + var(--input-padding));
+	border: var(--input-border) solid var(--input-color);
+	border-radius: 50%;
+	background: white;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+.circle svg {font-size: 22px;}
+
+.tag {
+	display: flex;
+	align-items: center;
+	height: var(--input-height);
+	font-size: var(--input-font-size);
+	padding-left: calc(2*var(--input-padding));
+	padding-right: var(--input-padding);
+	border: var(--input-border) solid var(--input-color);
+	border-radius: var(--input-radius);
+	margin-left: calc(-1 * var(--input-padding) - 2*var(--input-border));
+	cursor: pointer;
+	user-select: none;
+	box-sizing: border-box;
+}
+
+
+
+/* Copy stuff */
+.copy:hover {
+	background-color: #ddd;
+	cursor: pointer;
+}
+.copy:active {background-color: #ccc;}
+
+.copy-box {
+	--copy-height: 50px;
+	--copy-width: 210px;
+	--copy-margin: 15px;
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	font-style: italic;
+	right: calc(-1*(var(--copy-width) + var(--copy-margin)));
+	bottom: 0;
+	height: var(--copy-height);
+	width: var(--copy-width);
+	margin: var(--copy-margin);
+	border: var(--input-border) solid var(--input-color);
+	border-radius: 5px;
+	background-color: white;
+	box-sizing: border-box;
+}
+.copy-box svg {
+	font-size: 16px;
+	margin-right: 8px;
+	color: black;
+}

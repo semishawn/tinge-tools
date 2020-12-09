@@ -5,52 +5,27 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tinge Tools</title>
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+	<script src="https://kit.fontawesome.com/5978d27576.js" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/variables.css">
 	<style>
-	* {
-		font-family: 'Fira Code', monospace;
-		font-size: 15px;
-		margin: 0;
-	}
-
-	body {
-		padding: 0;
-		margin: 20px;
-	}
-
-	h1 {
-		font-size: 20px;
-		font-weight: 500;
-	}
-
-	ul {
-		padding: 0;
-		list-style-type: none;
-	}
-
-	a {color: blue;}
+		a {
+			color: blue;
+			text-decoration: none;
+		}
+		a:hover {text-decoration: underline;}
 	</style>
 </head>
 
 <body>
-	<h1>Not much here, eh...</h1>
-	<br>
-	<p>Well except for those links down there.</p>
-	<p>But don't click on them.</p>
-	<p>Seriously don't.</p>
-	<p>Okay fine... you may click, but only once.</p>
-	<p>I'm watching you. o_O</p>
-	<br>
-	<ul>
-		<li><a href="tools/color-converter">Color Converter</a></li>
-		<li><a href="tools/random-color">Random Color Generator</a></li>
-		<li><a href="tools/random-gradient">Random Gradient Generator</a></li>
-		<li><a href="tools/random-4-corner">Random 4 Corner Gradient Gradient</a></li>
-		<li><a href="tools/blend-friend">Blend Friend</a></li>
-		<li><a href="tools/crystallizer">Image Crystallizer</a></li>
-	</ul>
+	<div class="container">
+		<a href="tools/blend-friend">Blend Friend</a><br>
+		<a href="tools/random-color">Random Color Generator</a><br>
+		<a href="tools/crystallizer">Image Crystallizer</a>
+	</div>
 </body>
 
 </html>
